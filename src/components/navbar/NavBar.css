@@ -1,0 +1,31 @@
+  .container-logo{
+    width: 200px;
+  }
+  .container-login{
+    width: 200px;
+    text-align: center;  
+  }
+  .container-logo img{
+    width: 100%;
+  }
+  ul.menupr {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: auto;
+  }
+  
+  ul.menupr li {
+    float: left;
+  }
+  
+  ul.menupr li a{
+    display: block;
+    padding: 2em;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  #root header{
+    background-color: #2f5f91;
+  }
