@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import './components/navbar/NavBar.js'
-import NavBar from './components/navbar/NavBar.js';
+import './components/NavBar/NavBar.js'
+import NavBar from './components/NavBar/NavBar.js';
+import ListContainer from './components/Card/ListContainer';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <NavBar></NavBar>
       <div className="App">
         <h1 className='title'>Nature Store</h1>
+        <ListContainer></ListContainer>
       </div>
     </>
     

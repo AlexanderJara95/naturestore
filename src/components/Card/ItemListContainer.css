@@ -1,0 +1,12 @@
+.imageItemList{
+    width: 200px;
+}
+.imageItemList img{
+    width: 100%;
+}
+.MuiGrid-container{
+    padding: 0 2em;
+}
+.MuiGrid-container div{
+    padding: 1em;
+}

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import './NavBar.css';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import CartWidget from '../CartWidget/CartWidget';
 function NavBar(){
     return (
       <AppBar position="static">
@@ -23,8 +23,9 @@ function NavBar(){
                 size="large"
                 color="inherit"
               >
-            <AccountCircle variant="h3"></AccountCircle>
-          </IconButton>
+              <AccountCircle fontSize='medium'></AccountCircle>            
+            </IconButton>
+            <CartWidget></CartWidget>
           </div>
         </Toolbar>
       </AppBar>
