@@ -1,0 +1,10 @@
+.count-item{
+    display: flex;
+    justify-content: center;
+}
+.count-item h2{
+    width: 100%;
+}
+.MuiButton-root{
+    width: 80%;
+}
