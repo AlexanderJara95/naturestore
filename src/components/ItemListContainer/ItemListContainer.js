@@ -63,7 +63,7 @@ function ItemListContainer(){
     });
     return(
         <Grid container>
-            <ItemList items={items}></ItemList>
+            <ItemList items={data}></ItemList>
         </Grid>
     );
 }
