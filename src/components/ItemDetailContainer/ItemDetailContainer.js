@@ -2,18 +2,19 @@ import ItemList from "../ItemList/ItemList";
 import {useEffect, useState} from "react";
 import { Grid } from "@mui/material";
 import producto from "../../utils/Producto";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
-function ItemListContainer(){
+function ItemDetailContainer(){
     const [data,setData] = useState([]);   
-    const mock = () =>{
+    const getItem = () =>{
         return new Promise((resolve,reject) =>{
             setTimeout(() => {
-                resolve(producto);
+                resolve(producto[0]);
             }, 2000);
         })
     }
     useEffect(()=>{
-        mock()
+        getItem()
         .then((response)=>{
             setData(response)
         })
@@ -21,13 +22,13 @@ function ItemListContainer(){
             
         })    
         .finally(()=>{
-            console.log("listado finalizado",producto);
+            console.log("listado finalizado");
         })   
     });
     return(
         <Grid container>
-            <ItemList items={data}></ItemList>
+            <ItemDetail item={data}></ItemDetail>
         </Grid>
     );
 }
-export default ItemListContainer;
+export default ItemDetailContainer;

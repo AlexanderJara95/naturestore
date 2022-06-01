@@ -11,6 +11,8 @@ function ItemCount({stock,initial}){
     const [desactive,setDesactive] = useState(false);
 
     useEffect(()=>{
+        console.log("stock",stock);
+        console.log("initial",initial);
         if(stock==0)setDesactive(true);
     },[stock]);
 

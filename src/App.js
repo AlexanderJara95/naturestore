@@ -2,6 +2,7 @@ import './App.css';
 import './components/NavBar/NavBar.js'
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <NavBar></NavBar>
       <div className="App">
         <h1 className='title'>Nature Store</h1>
-        <ItemListContainer></ItemListContainer>
+        <ItemDetailContainer></ItemDetailContainer>
       </div>
     </>
     
