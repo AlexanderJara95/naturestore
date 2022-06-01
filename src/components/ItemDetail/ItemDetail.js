@@ -14,13 +14,10 @@ const ItemGrid = styled(Paper)(({ theme }) => ({
 }));
 
 function ItemDetail({item}){
-    useEffect(()=> {
-        console.log("iteeeem:",item);
-    },[]);
     return (
         <Grid container spacing={2}>
             <Grid item xs={8}>
-                <ItemGrid centered>
+                <ItemGrid>
                     <div className='imageDetailList'>
                         <img src={`${item.pictureUrl}`}/>
                     </div>
