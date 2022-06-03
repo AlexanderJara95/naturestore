@@ -1,8 +1,11 @@
+import React from 'react';
 import Card from '@mui/material/Card';
 import { Grid } from '@mui/material';
 import './ItemList.css'
 import Item from '../Item/Item';
 import ItemCount from '../ItemCount/ItemCount';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function ItemList({items}){
     return(
@@ -12,6 +15,9 @@ function ItemList({items}){
                     <Card sx={{ minWidth: 275}}>
                     <Item id={i.id} title={i.title} price={i.price} pictureUrl={i.pictureUrl} pesoNeto={i.pesoNeto} stock={i.stock}> </Item>
                     <ItemCount stock={i.stock} initial={i.initial}></ItemCount>
+                    <Button variant={'contained'} style={{backgroundColor:'#000',marginTop:'10px'}}>
+                        <Link to={`/item/${i.id}`} style={{textDecoration:'none',color:'#fff'}}> Ver detalle</Link>
+                    </Button>
                     </Card>
                 </Grid>    
             ))}

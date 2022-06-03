@@ -1,3 +1,4 @@
+import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './CartWidget.css';

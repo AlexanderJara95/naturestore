@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import './NavBar.css';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 function NavBar(){
     return (
       <AppBar position="static">
@@ -13,10 +14,10 @@ function NavBar(){
             <img src="./naturestore-logo.png"></img>
           </div>  
           <ul className='menupr'>
-              <li><a href="">Inicio</a></li>
-              <li><a href="">Rejuvenecimiento</a></li>
-              <li><a href="">Anti-acné</a></li>
-              <li><a href="">Reparación</a></li>
+              <li><Link to="/">Inicio</Link></li>
+              <li><Link to="">Rejuvenecimiento</Link></li>
+              <li><Link to="">Anti-acné</Link></li>
+              <li><Link to="">Reparación</Link></li>
           </ul>
           <div className="container-login">
             <IconButton

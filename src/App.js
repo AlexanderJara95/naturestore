@@ -3,14 +3,21 @@ import './components/NavBar/NavBar.js'
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import React from 'react';
 
 function App() {
   return (
     <>
-      <NavBar></NavBar>
       <div className="App">
-        <h1 className='title'>Nature Store</h1>
-        <ItemDetailContainer></ItemDetailContainer>
+        <BrowserRouter>
+          <NavBar></NavBar>
+          <Routes>
+            <Route path='/' element={<ItemListContainer></ItemListContainer>}></Route>
+            <Route path='/category/:id' element={<ItemDetailContainer></ItemDetailContainer>}></Route>
+            <Route path='/item/:id' element={<ItemDetailContainer></ItemDetailContainer>}></Route>
+          </Routes>
+        </BrowserRouter>        
       </div>
     </>
     

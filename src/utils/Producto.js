@@ -1,6 +1,6 @@
 const producto =[
     {
-        id:1,
+        id:'1',
         title:'Jabón de sábila',
         price:3,
         pictureUrl:'jabon1.jpg',
@@ -10,7 +10,7 @@ const producto =[
         description:'Jabón importado de Indonesia con altos niveles de defensas para una correcta nutrición de la piel.'
     },
     {
-        id:2,
+        id:'2',
         title:'Shampoo de Miel',
         price:9,
         pictureUrl:'shampoo1.jpg',
@@ -19,7 +19,7 @@ const producto =[
         initial: 2
     },
     {
-        id:3,
+        id:'3',
         title:'Jabón de Avena',
         price:3,
         pictureUrl:'jabon2.jpg',
@@ -28,7 +28,7 @@ const producto =[
         initial: 1
     },
     {
-        id:4,
+        id:'4',
         title:'Shampoo de Avena',
         price:11,
         pictureUrl:'shampoo2.jpg',
