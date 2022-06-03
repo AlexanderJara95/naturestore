@@ -15,8 +15,8 @@ function NavBar(){
           </div>  
           <ul className='menupr'>
               <li><Link to="/">Inicio</Link></li>
-              <li><Link to="">Rejuvenecimiento</Link></li>
-              <li><Link to="">Anti-acné</Link></li>
+              <li><Link to="/category/shampoo">Shampoo{/*Rejuvenecimiento*/}</Link></li>
+              <li><Link to="/category/jabon">Jabón{/*Anti-acné*/}</Link></li>
               <li><Link to="">Reparación</Link></li>
           </ul>
           <div className="container-login">

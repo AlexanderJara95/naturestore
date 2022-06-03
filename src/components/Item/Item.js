@@ -15,7 +15,7 @@ function Item({id,title,price,pictureUrl,pesoNeto,stock}){
             <h1><b>$</b>{price}</h1>
             <br/>
             <div className='imageItemList'>
-                <img src={`${pictureUrl}`}/>
+                <img src={`../${pictureUrl}`}/>
             </div>
             <Typography variant="body2" color="text.secondary">
                 Stock: {stock}
