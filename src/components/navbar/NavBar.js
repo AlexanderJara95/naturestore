@@ -11,7 +11,7 @@ function NavBar(){
       <AppBar position="static">
         <Toolbar>
           <div className="container-logo">
-            <img src="./naturestore-logo.png"></img>
+            <Link to="/"><img src="./naturestore-logo.png"></img></Link> 
           </div>  
           <ul className='menupr'>
               <li><Link to="/">Inicio</Link></li>

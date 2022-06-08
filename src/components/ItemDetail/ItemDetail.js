@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const ItemGrid = styled(Paper)(({ theme }) => ({
   //backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -15,7 +17,10 @@ const ItemGrid = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
 }));
 
-function ItemDetail({item}){
+function ItemDetail({item}){    
+    const [showButton, setShowButton] = useState(false);
+    const [cantidad, setCantidad] = useState(0);
+
     return (
         <Grid container>
             <Grid item xs={6}>
@@ -40,7 +45,12 @@ function ItemDetail({item}){
                         {item.pesoNeto}
                     </Typography>
                     <h1><b>$</b>{item.price}</h1>
-                    <ItemCount stock={item.stock} initial={item.initial}></ItemCount>
+                    {!showButton ?
+                        <ItemCount stock={item.stock} setShowButton={setShowButton} count={cantidad} actualizarCantidad={setCantidad}></ItemCount>
+                    :
+                        <Button><Link to="/cart">Terminar mi compra</Link></Button>
+                    }
+                    
                     <p>
                         Stock: {item.stock}
                     </p>

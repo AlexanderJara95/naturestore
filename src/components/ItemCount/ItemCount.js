@@ -5,24 +5,22 @@ import DoDisturbOnOutlinedIcon from '@mui/icons-material/DoDisturbOnOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import { IconButton } from '@mui/material';
 
-function ItemCount({stock,initial}){
+function ItemCount({stock,setShowButton,count,actualizarCantidad}){
 
-    const [count,setCount] = useState(initial);
     const [desactive,setDesactive] = useState(false);
-
+    
     useEffect(()=>{
         if(stock==0)setDesactive(true);
-        setCount(initial);
-    },[stock,initial]);
+    },[stock,count]);
 
     const onAdd = () =>{
         if(count<stock){
-            setCount(count+1);
+            actualizarCantidad(count+1);
         }
     }
     const onRemove = () =>{
         if(count>0)
-        setCount(count-1);
+        actualizarCantidad(count-1);
     }
 
     return(
@@ -36,7 +34,7 @@ function ItemCount({stock,initial}){
                     <AddCircleOutlineOutlinedIcon fontSize='large' />
                 </IconButton>
             </div>
-            <Button variant="contained" disabled={desactive} size="large">Agregar</Button>
+            <Button variant="contained" disabled={desactive} onClick={()=>setShowButton(true)} size="large">Agregar</Button>
         </>
     );
 }
