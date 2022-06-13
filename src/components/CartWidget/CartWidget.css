@@ -7,3 +7,24 @@
     border-radius:5px;
     padding:0px 5px;
 }
+.containItem{
+    color: #2c2c2c;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boxCart{
+    position: absolute;
+    z-index: 20;
+    background-color: #fff;
+    width: 33vh;
+    padding: 1em 0;
+    border: solid 1px rgb(63, 63, 63);
+}
+.imageItem img{
+    width:60px;
+}
+.containItem .in {
+    text-align: center;
+}

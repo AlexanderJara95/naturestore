@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -9,6 +9,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/cartContext';
 
 const ItemGrid = styled(Paper)(({ theme }) => ({
   //backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,7 +21,7 @@ const ItemGrid = styled(Paper)(({ theme }) => ({
 function ItemDetail({item}){    
     const [showButton, setShowButton] = useState(false);
     const [cantidad, setCantidad] = useState(0);
-
+    const {addProductToCart} = useContext(CartContext);
     return (
         <Grid container>
             <Grid item xs={6}>
@@ -46,7 +47,7 @@ function ItemDetail({item}){
                     </Typography>
                     <h1><b>$</b>{item.price}</h1>
                     {!showButton ?
-                        <ItemCount stock={item.stock} setShowButton={setShowButton} count={cantidad} actualizarCantidad={setCantidad}></ItemCount>
+                        <ItemCount item={item} stock={item.stock} setShowButton={setShowButton} count={cantidad} actualizarCantidad={setCantidad} addProductToCart={addProductToCart}></ItemCount>
                     :
                         <Button><Link to="/cart">Terminar mi compra</Link></Button>
                     }

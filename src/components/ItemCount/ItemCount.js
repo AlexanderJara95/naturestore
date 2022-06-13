@@ -5,7 +5,7 @@ import DoDisturbOnOutlinedIcon from '@mui/icons-material/DoDisturbOnOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import { IconButton } from '@mui/material';
 
-function ItemCount({stock,setShowButton,count,actualizarCantidad}){
+function ItemCount({item,stock,setShowButton,count,actualizarCantidad,addProductToCart}){
 
     const [desactive,setDesactive] = useState(false);
     
@@ -34,7 +34,7 @@ function ItemCount({stock,setShowButton,count,actualizarCantidad}){
                     <AddCircleOutlineOutlinedIcon fontSize='large' />
                 </IconButton>
             </div>
-            <Button variant="contained" disabled={desactive} onClick={()=>setShowButton(true)} size="large">Agregar</Button>
+            <Button variant="contained" disabled={desactive} onClick={()=>addProductToCart(item,count)} size="large">Agregar</Button>
         </>
     );
 }
