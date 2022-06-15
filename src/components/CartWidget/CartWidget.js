@@ -6,6 +6,7 @@ import './CartWidget.css';
 import CartContext from '../../context/cartContext';
 import { Button,Menu,MenuItem,Fade} from '@mui/material';
 import { Link } from 'react-router-dom';
+import Cart from '../Cart/Cart';
 
 function CartWidget(){
     const {cartListItem,removeProductToCart,clearAllCart,setCartListItem} = useContext(CartContext);
@@ -52,26 +53,37 @@ function CartWidget(){
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
-                {cartListItem.map((item)=>{  
-                    return(
-                        <div className='containItem' key={item.id}>
-                            <div className='in imageItem'>
-                                <img src={`../${item.pictureUrl}`}/>
+                <div>
+                    {cartListItem.map((item)=>{  
+                        return(
+                            <div className='containItem' key={item.id}>
+                                <div className='in imageItem'>
+                                    <img src={`../${item.pictureUrl}`}/>
+                                </div>
+                                <div className='in infoItem'>{item.title}<br></br><b>{item.count} cantidades</b></div>
+                                <div className='in actionItem'><Button onClick={()=>removeProductToCart(item.id)}><DeleteOutlineOutlinedIcon></DeleteOutlineOutlinedIcon></Button></div>
                             </div>
-                            <div className='in infoItem'>{item.title}<br></br><b>{item.count} cantidades</b></div>
-                            <div className='in actionItem'><Button onClick={()=>removeProductToCart(item.id)}><DeleteOutlineOutlinedIcon></DeleteOutlineOutlinedIcon></Button></div>
+                        )
+                    })}
+                    
+                    {cartListItem.length === 0 
+                        ?<>
+                            <div style={{padding:'1em'}}>
+                                <p style={{color:"#000"}}>Carrito vacío</p>
+                                <p><Link to="/">Agregar Productos</Link></p>
+                            </div>
+                        </>
+                        : <>
+                        <div className='containItem'>
+                            <Button variant="outlined"><Link to="/cart">Terminar mi compra</Link></Button>
                         </div>
-                    )
-                })}
-                {cartListItem.length === 0 
-                    ?<>
-                        <div style={{padding:'1em'}}>
-                            <p style={{color:"#000"}}>Carrito vacío</p>
-                            <p><Link to="/">Agregar Productos</Link></p>
+                        <div className='containItem'>
+                            <Button variant="contained" onClick={()=>clearAllCart()}>Limpiar todo</Button>
                         </div>
-                    </>
-                    : <div className='containItem'><Button variant="contained" onClick={()=>clearAllCart()}>Limpiar todo</Button></div>
-                }
+                        </>
+                    }
+                </div>
+                
             </Menu>
         </>
     );
