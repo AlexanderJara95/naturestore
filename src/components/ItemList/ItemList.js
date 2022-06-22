@@ -12,7 +12,7 @@ function ItemList({items}){
     return(
         <>
             {items.map((i) => (
-                <Grid item md={3} key={i.id}>
+                <Grid item key={i.id}>
                     <Card sx={{ minWidth: 275}}>
                     <Item id={i.id} title={i.title} price={i.price} pictureUrl={i.pictureUrl} pesoNeto={i.pesoNeto} stock={i.stock}> </Item>
                     <Button variant={'contained'} style={{backgroundColor:'#000',marginTop:'10px'}}>

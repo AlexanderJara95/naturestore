@@ -3,19 +3,31 @@ import React,{useEffect, useState} from "react";
 import { Grid } from "@mui/material";
 import producto from "../../utils/Producto";
 import {useParams} from 'react-router-dom';
+import { collection, getDocs} from 'firebase/firestore';
+import db from '../../utils/FirebaseConfig';
 
 function ItemListContainer(){
     const [data,setData] = useState([]);  
     const {categoryId} = useParams(); 
+
+    const getFirebaseProducts = async () =>{
+        const databd = await getDocs(collection(db,"Producto"));
+        const productList = databd.docs.map((doc)=>{
+            let prod = doc.data();
+            prod.id = doc.id;
+            return prod;
+        });
+        return productList
+    }
     const getProducts = () =>{
         return new Promise((resolve,reject) =>{
             setTimeout(() => {
-                resolve(producto);
+                resolve(getFirebaseProducts());
             }, 1000);
         })
     }
     useEffect(()=>{   
-        setData([]);     
+        setData([]);   
         getProducts()
         .then((response)=>{
             if(!categoryId){

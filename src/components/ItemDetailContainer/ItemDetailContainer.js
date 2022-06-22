@@ -9,24 +9,8 @@ function ItemDetailContainer(){
     //destructuración
     const {id} = useParams();
     console.log("params:", id);
-    const [data,setData] = useState([]);   
-    /*const getItem = () =>{
-        return new Promise((resolve,reject) =>{
-            setTimeout(() => {
-                resolve(producto[0]);
-            }, 2000);
-        })
-    }
-     getItem()
-        .then((response)=>{
-            setData(response)
-        })
-        .catch((err)=>{
-            
-        })    
-        .finally(()=>{
-            console.log("listado finalizado");
-        })   */
+    const [data,setData] = useState([]);  
+    
     useEffect(()=>{
         setData(productFilter);
     },[]);
