@@ -28,8 +28,7 @@ function ItemListContainer(){
     }
     useEffect(()=>{   
         setData([]);   
-        getProducts()
-        .then((response)=>{
+        getProducts().then((response)=>{
             if(!categoryId){
                 setData(response)
             }else{

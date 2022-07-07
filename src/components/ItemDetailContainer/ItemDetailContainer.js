@@ -12,11 +12,14 @@ function ItemDetailContainer(){
     const [data,setData] = useState([]);  
     
     useEffect(()=>{
-        setData(productFilter);
+        producto.then((response)=>{
+            const productFilter = response.find((prod)=>{
+                return prod.id === id
+            });
+            setData(productFilter);
+        })        
     },[]);
-    const productFilter = producto.find((prod)=>{
-        return prod.id === id
-    });
+    
 
     return(
         <Grid container>

@@ -1,4 +1,27 @@
-const producto =[
+import { collection, getDocs} from 'firebase/firestore';
+import db from './FirebaseConfig';
+
+
+const getFirebaseProducts = async () =>{
+    const databd = await getDocs(collection(db,"Producto"));
+    const productList = databd.docs.map((doc)=>{
+        let prod = doc.data();
+        prod.id = doc.id;
+        return prod;
+    });
+    return productList
+}
+const getProducts = () =>{
+    return new Promise((resolve,reject) =>{
+        setTimeout(() => {
+            resolve(getFirebaseProducts());
+        }, 1000);
+    })
+}
+
+const producto = getProducts();
+
+/*const producto =[
     {
         id:'1',
         title:'Jabón de sábila',
@@ -44,5 +67,6 @@ const producto =[
         category:'shampoo',
     }
 ]   
+*/
 
 export default producto;
